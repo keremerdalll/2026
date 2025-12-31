@@ -1,239 +1,178 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8">
-<title>Bizim Hikâyemiz 💙</title>
+  <meta charset="UTF-8">
+  <title>Mutlu Yıllar Aşkım</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #001f3f, #003366, #004c99);
-    min-height: 100vh;
-    color: white;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0a1a3f, #0f2c6d);
+      color: white;
+      text-align: center;
+      font-size: 18px;
+    }
 
-/* SAYFA DÜZENİ */
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-}
+    h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+      text-shadow: 0 0 12px rgba(0,150,255,0.6);
+    }
 
-/* FOTO – MAVİ ARKAPLAN ÜZERİNDE */
-.love-photo {
-    width: 90%;
-    max-width: 380px;
-    max-height: 230px;
-    object-fit: cover;
-    border-radius: 18px;
-    margin-bottom: 30px; /* CARD İLE NET AYRIM */
-}
+    img.love-photo {
+      width: 260px;
+      max-width: 90%;
+      border-radius: 14px;
+      margin: 20px auto;
+      display: block;
+      animation: fadeIn 2s ease forwards;
+    }
 
-/* CARD */
-.card {
-    background: rgba(0,0,0,0.35);
-    padding: 22px;
-    width: 90%;
-    max-width: 380px;
-    text-align: center;
-    border-radius: 0 0 20px 20px; /* ÜSTÜ DÜZ */
-    margin-bottom: 40px;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
 
-h1 {
-    font-size: 22px;
-    margin-bottom: 10px;
-}
+    button {
+      background: #1e90ff;
+      border: none;
+      border-radius: 30px;
+      color: white;
+      padding: 14px 26px;
+      font-size: 18px;
+      margin: 10px 0;
+      cursor: pointer;
+      width: 100%;
+      max-width: 320px;
+    }
 
-button {
-    width: 100%;
-    margin: 7px 0;
-    padding: 12px;
-    font-size: 16px;
-    border: none;
-    border-radius: 12px;
-    background: #ff4b5c;
-    color: white;
-    cursor: pointer;
-}
+    button:hover {
+      background: #3ea0ff;
+    }
 
-button:hover {
-    background: #ff1e3c;
-}
+    .section {
+      display: none;
+      margin-top: 20px;
+    }
 
-.section {
-    display: none;
-    margin-top: 15px;
-    font-size: 15px;
-    line-height: 1.6;
-    text-align: left;
-}
+    .poems {
+      max-height: 300px;
+      overflow-y: auto;
+      padding: 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+    }
 
-/* NASIL BAŞLADI */
-.typewriter {
-    min-height: 120px;
-    white-space: pre-line;
-}
+    .distance {
+      font-size: 32px;
+      margin-top: 15px;
+      font-weight: bold;
+    }
 
-/* ŞİİRLER – SCROLL AKTİF */
-.poems {
-    max-height: 180px;
-    overflow-y: auto;
-    padding-right: 5px;
-}
+    /* 📱 MOBİL ÖZEL */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 32px;
+      }
 
-.poem {
-    margin-bottom: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 10px;
-}
+      button {
+        font-size: 20px;
+        padding: 16px;
+      }
 
-/* MESAFE */
-.distance {
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    margin-top: 20px;
-}
-</style>
+      .distance {
+        font-size: 36px;
+      }
+
+      .poems {
+        max-height: 60vh;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="wrapper">
+  <h1>Mutlu Yıllar Aşkım ❤️</h1>
 
-    <!-- FOTO -->
-    <img src="foto.png" class="love-photo">
+  <img src="foto.png" alt="Biz" class="love-photo">
 
-    <!-- CARD -->
-    <div class="card">
-        <h1>🎆 Mutlu Yıllar Aşkım 🎆</h1>
+  <button onclick="showStart()">Nasıl Başladı</button>
+  <button onclick="showPoems()">En Güzel Şiirler</button>
+  <button onclick="showDistance()">Aramızdaki Mesafe</button>
 
-        <button onclick="openStart()">💌 Nasıl Başladı</button>
-        <button onclick="openPoems()">📜 Şiirlerimin En Güzel Yüzü</button>
-        <button onclick="openDistance()">📍 Aramızdaki Mesafe</button>
+  <!-- NASIL BAŞLADI -->
+  <div id="start" class="section">
+    <p>Her şey bir mesajla başladı…</p>
+    <p>Sonra geceler uzadı, kelimeler güzelleşti.</p>
+    <p>İyi ki sen 💙</p>
+  </div>
 
-        <!-- NASIL BAŞLADI -->
-        <div id="start" class="section">
-            <div id="typeText" class="typewriter"></div>
-        </div>
+  <!-- ŞİİRLER -->
+  <div id="poems" class="section poems">
+    <p>Sen gülünce dünya duruyor.</p>
+    <p>Adını andığımda kalbim hızlanıyor.</p>
+    <p>Bu satırlar sana, sadece sana…</p>
+    <p>Nice yıllara birlikte.</p>
+  </div>
 
-        <!-- ŞİİRLER -->
-        <div id="poems" class="section poems">
-            <div class="poem">
-                <strong>Birinci Şiir</strong><br>
-                Gözlerin bir cümleydi,<br>
-                Ben daha ilk kelimede kayboldum.<br>
-                Adını kalbime yazdım.
-            </div>
+  <!-- MESAFE -->
+  <div id="distanceSection" class="section">
+    <p>Aramızdaki Mesafe</p>
+    <div class="distance" id="distance">0 km</div>
+  </div>
 
-            <div class="poem">
-                <strong>İkinci Şiir</strong><br>
-                Sen gülünce sustu dünya,<br>
-                Zaman durdu,<br>
-                O an seni seçtim.
-            </div>
+  <!-- MÜZİKLER -->
+  <audio id="music-start" src="tulay.mp3"></audio>
+  <audio id="music-poems" src="peer.mp3"></audio>
 
-            <div class="poem">
-                <strong>Üçüncü Şiir</strong><br>
-                Yıl geçer, mesafe büyür,<br>
-                Ama sevda eksilmez,<br>
-                Çünkü biz varız.
-            </div>
+  <script>
+    const musicStart = document.getElementById("music-start");
+    const musicPoems = document.getElementById("music-poems");
 
-            <div class="poem">
-                <strong>Dördüncü Şiir</strong><br>
-                Adını her cümlede sakladım,<br>
-                Kimse bilmeden,<br>
-                Kalbimde büyüttüm.
-            </div>
-        </div>
-
-        <!-- MESAFE -->
-        <div id="distance" class="section">
-            <div id="distanceValue" class="distance">0 km</div>
-        </div>
-
-        <!-- MÜZİKLER -->
-        <audio id="musicStart" loop>
-            <source src="tulay-ikimiz-bir-fidaniz.mp3" type="audio/mpeg">
-        </audio>
-
-        <audio id="musicPoems" loop>
-            <source src="peer-pressure-remix.mp3" type="audio/mpeg">
-        </audio>
-
-    </div>
-</div>
-
-<script>
-const storyText = `
-Her şey basit bir "merhaba" ile başladı…
-Saatlerce yazdık,
-Güldük,
-Bazen sustuk ama hiç kopmadık.
-
-Sonra anladım…
-Bu sadece bir sohbet değil,
-Bu bir hikâye.
-
-Bizim hikâyemiz 💙
-`;
-
-let index = 0;
-let distanceInterval = null;
-
-function typeStory() {
-    if (index < storyText.length) {
-        typeText.innerHTML += storyText.charAt(index);
-        index++;
-        setTimeout(typeStory, 50);
+    function stopAllMusic() {
+      musicStart.pause();
+      musicPoems.pause();
     }
-}
 
-function stopAll() {
-    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
-    musicStart.pause();
-    musicPoems.pause();
-}
+    function hideAll() {
+      document.querySelectorAll(".section").forEach(s => s.style.display = "none");
+    }
 
-function openStart() {
-    stopAll();
-    start.style.display = 'block';
-    typeText.innerHTML = "";
-    index = 0;
-    typeStory();
-    musicStart.currentTime = 0;
-    musicStart.volume = 0.4;
-    musicStart.play();
-}
+    function showStart() {
+      hideAll();
+      stopAllMusic();
+      document.getElementById("start").style.display = "block";
+      musicStart.currentTime = 0;
+      musicStart.play();
+    }
 
-function openPoems() {
-    stopAll();
-    poems.style.display = 'block';
-    musicPoems.currentTime = 0;
-    musicPoems.volume = 0.4;
-    musicPoems.play();
-}
+    function showPoems() {
+      hideAll();
+      stopAllMusic();
+      document.getElementById("poems").style.display = "block";
+      musicPoems.currentTime = 0;
+      musicPoems.play();
+    }
 
-function openDistance() {
-    stopAll();
-    distance.style.display = 'block';
+    function showDistance() {
+      hideAll();
+      stopAllMusic();
+      document.getElementById("distanceSection").style.display = "block";
 
-    let value = 0;
-    clearInterval(distanceInterval);
-    distanceInterval = setInterval(() => {
-        value += 3;
-        if (value >= 360) {
-            value = 360;
-            clearInterval(distanceInterval);
+      let d = 0;
+      const counter = setInterval(() => {
+        d += 8;
+        if (d >= 360) {
+          d = 360;
+          clearInterval(counter);
         }
-        distanceValue.textContent = value + " km";
-    }, 40);
-}
-</script>
+        document.getElementById("distance").innerText = d + " km";
+      }, 30);
+    }
+  </script>
 
 </body>
 </html>
