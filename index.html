@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mutlu Yıllar Aşkım</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Merriweather&display=swap" rel="stylesheet">
+<!-- Fontlar -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Merriweather&family=Montserrat&display=swap" rel="stylesheet">
 
 <style>
 body {
@@ -51,7 +52,7 @@ h1 {
     z-index: 2;
     position: relative;
 }
-    
+
 button {
     width: 90%;
     max-width: 320px;
@@ -74,23 +75,26 @@ button {
     position: relative;
 }
 
+/* Nasıl başladı daktilo */
 #typewriter {
     font-family: "Times New Roman", serif;
     font-size: 1.1em;
     line-height: 1.6;
     min-height: 300px;
     text-align: left;
-    white-space: pre-wrap; /* satırları korur */
+    white-space: pre-wrap;
 }
 
+/* Şiirler */
 #poems {
+    font-family: 'Merriweather', serif;
+    font-size: 1.15em;
+    line-height: 1.6;
     max-height: 400px;
     overflow-y: auto;
     padding: 10px;
     border-top: 1px solid rgba(255,255,255,0.3);
     text-align: left;
-    font-family: 'Dancing Script', cursive;
-    font-size: 1.2em;
 }
 
 .poem {
@@ -98,19 +102,22 @@ button {
     line-height: 1.6;
     opacity: 0; /* fade in için */
     transition: opacity 1s ease-in;
-    padding-bottom: 20px; /* alt boşluk ve çizgi arası mesafe */
+    padding-bottom: 20px;
     border-bottom: 1px solid rgba(255,255,255,0.3); /* çizgi */
 }
 
 .poem strong {
     display: block;
-    margin-bottom: 10px; /* başlık ile şiir arasına boşluk */
+    margin-bottom: 10px; /* başlık ile şiir arası boşluk */
     font-size: 1.3em;
 }
 
+/* Mesafe */
 #distance {
+    font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     margin-top: 20px;
+    color: #ffd700;
 }
 
 /* Kar efekti */
@@ -125,9 +132,7 @@ button {
 }
 
 @keyframes fall {
-    to {
-        transform: translateY(110vh);
-    }
+    to { transform: translateY(110vh); }
 }
 </style>
 </head>
@@ -138,18 +143,17 @@ button {
 
 <div class="heart">♥</div>
 
-<h1> Mutlu Yıllar Aşkım </h1>
+<h1>🎆 Mutlu Yıllar Aşkım 🎆</h1>
 
 <button onclick="showStart()">💌 Nasıl Başladı</button>
-<button onclick="showPoems()">📜 Şiirlerimin En Güzel Yüzü</button>
-<button onclick="showDistance()">📍 Birlikte Yeneceğimiz Mesafe</button>
+<button onclick="showPoems()">📜 En Güzel Şiirler</button>
+<button onclick="showDistance()">📍 Aramızdaki Mesafe</button>
 
 <div id="start" class="section">
     <div id="typewriter"></div>
 </div>
 
 <div id="poems" class="section">
-
 <!-- Şiirler Başlangıç -->
 <div class="poem">
 <strong>Mavi Kalmazsa</strong><br>
@@ -157,11 +161,9 @@ Kalbim iyi değil bu ara<br>
 Senin için atmak istiyor gibi<br>
 Sert atıyor, bana kızıyor sanki<br>
 Kalbim maviliğini arar<br><br>
-
 Gökkuşağım oluştu geldiğinde<br>
 Maviye seni koydum rengini söylediğinde<br>
-Sen gidersen gökkuşağımda mavi kalmaz<br>
-
+Sen gidersen gökkuşağımda mavi kalmaz<br><br>
 Mavi kalmazsa diğer renklere bakacak yüzüm olmaz
 </div>
 
@@ -179,17 +181,14 @@ Pembe, beyaz gül desenli kimono’yla gördüm seni<br>
 Sakura’ya gölge düşürüşünü, şahit olmam ani<br>
 Karşılaştık, sözlerinle büyüledin beni<br>
 Sarhoş olmam için sake değil, öğrettiğin aşk yeterli<br><br>
-
 Beyaz, gelinliği anımsatan kimono’yla hayal ettim seni<br>
 Yaren olmuştun bana, sevmiştim bu hissi<br>
 Açıldık, ne güzel sevmiştik birbirimizi<br>
 Hayatı bulmuştum, yeni doğmuş gibi<br><br>
-
 Siyah kimono’yla karşımdasın şimdi<br>
 Saç topuzumu kesmiş, dizlerimin üstündeyim<br>
 Ayrıldık… ve ayrıldık…<br>
-Defalarca sapladım karnıma öyle bir acıyı<br>
-
+Defalarca sapladım karnıma öyle bir acıyı<br><br>
 Elindekiyle göster bana saygını<br>
 Sakura’ya gölge düşürdüğün tek şey güzelliğin olmasın
 </div>
@@ -210,115 +209,19 @@ Anılarla boğuşur her uyku saati<br>
 Kalbim susmaz, özler seni inadına
 </div>
 
-<div class="poem">
-<strong>Mavi Gökyüzü</strong><br>
-Hava kararınca bastırıyor kalbime yokluğun<br>
-Sanma ki aydınlıkta sensizliğe alışıyorum<br>
-Aydınlık dediğime bakma, grileşiyor sema<br>
-Ama ben mavi gökyüzünü istiyorum
-</div>
-
-<div class="poem">
-<strong>Salaksın Ama Seviyorum</strong><br>
-Yine heyecanla telefonda konuşurken<br>
-“Salaksın ama seviyorum işte” demiştin<br>
-Seni ne kadar sevdiğimi bilir misin<br>
-Duygularımın adasındaki tek hazinemsin
-</div>
-
-<div class="poem">
-<strong>Zamanın Durduğu Yer</strong><br>
-O banktan sonra<br>
-Gelir miydi ayrılık aklıma<br><br>
-Ellerin ellerime kavuşmuşken<br>
-Gözlerin gözlerime düşerken<br>
-Dudakların dudaklarıma değmişken<br>
-Zaman durmuştu o parkta<br><br>
-
-Sanki bir hayat yaşadım ben o bankta<br>
-Keşke daha fazla sarılsaydım sana<br>
-Nasıl doyarım senin verdiğin aşka<br>
-Nasıl giderim sensiz olan bir yola<br><br>
-
-İyi ki parladın bana ilk aşk adına<br>
-Şimdi o bank uzağımızda<br>
-Mesafe değil önemli olan<br>
-Gönülden çok uzakta<br>
-Aşkımıza şahit olmuş bank<br>
-Özlemi yükselten bir hatıra
-</div>
-
-<div class="poem">
-<strong>Yanıbaşımdaydın</strong><br>
-Mesafe engel değil seni sevmeme<br>
-İstanbul’daki havayı senin nefesin saydım<br>
-Sabah öten kuşlarda senin sesini işittim<br>
-Göğsündü kafamı koyduğum yastığım<br><br>
-
-Mesafe olsa bile<br>
-Sen benim yanıbaşımdaydın
-</div>
-
-<div class="poem">
-<strong>Rüyalarımda</strong><br>
-Şimdi hâlâ rüyalarımdasın<br>
-Öyle güzel, öyle gülümseten<br>
-Gerçek olmasını dileyeceğim türden<br><br>
-
-Rüyalarımda seviyorum seni<br>
-Gözümü açtığımda özlemem gayri ihtiyarı<br>
-Çünkü sadece hayallerde değil<br>
-Bana cenneti yaşatan bu hayatta da seviyorum seni
-</div>
-
-<div class="poem">
-<strong>Gece</strong><br>
-Düşlerimde yankı bulur her kelimen<br>
-Nasıl yön verir rüyalarıma sen yokken<br>
-Uyuyamam güneşi göremeden<br>
-Çünkü tüm gece aklımdasın sen
-</div>
-
-<div class="poem">
-<strong>Sokak Lambaları</strong><br>
-Dört duvar arasındayım, seni sorarlar onlar<br>
-Anlatamam, kelimeler geçmez boğazımdan<br>
-Dışarı atarım kendimi, sokak lambaları karşılar<br>
-Ayazı unuturum, aklımda sen olduğundan<br><br>
-
-Aklımın sahibi değilsin sadece<br>
-Baharda verdim kalbimi, güneş tepede<br>
-Gün doğumunu bekliyorum her gün<br>
-Seni koydum güneş yerine
-</div>
-
-<div class="poem">
-<strong>Gönül Uzaklığı</strong><br>
-Gönül uzaklığına nasıl dayansın yürek<br>
-İster dünyanın öbür ucunda ol<br>
-Gönül uzaklığı kadar ağır gelmedi<br>
-Nisan’da doğduğumdan beri
-</div>
-
-<div class="poem">
-<strong>Sessiz İtiraf</strong><br>
-Kalbim iyice aklıma aşık olduğunu belli etti sessizce<br>
-Aşkı ne küçük görürmüşüm senden önce<br>
-Sen bunu kanıtlayan bir emaresin<br>
-Beraber büyüttük bu aşkı<br>
-Ulaşmadan birbirimize
-</div>
-
 </div>
 
 <div id="distance" class="section">0 km</div>
 
-<audio id="musicStart" src="start.mp3"></audio>
-<audio id="musicPoem" src="poem.mp3" loop></audio>
+<!-- Müzikler -->
+<audio id="musicStart" src="Tülay - İkimiz Bir Fidanız (SözleriLyrics) (1975 Plak Kaydı).mp3"></audio>
+<audio id="musicPoem" src="Peer Pressure Extended (Dreamshift Remix) - Eternal Sunshine of the Spotless Mind.mp3" loop></audio>
+<audio id="musicDistance" src="MesafeSarkisi.mp3"></audio>
 
 <script>
 const musicStart = document.getElementById("musicStart");
 const musicPoem = document.getElementById("musicPoem");
+const musicDistance = document.getElementById("musicDistance");
 
 /* Nasıl başladı daktilo metni */
 const lines = [
@@ -334,7 +237,7 @@ const lines = [
   '"Aleyküm selam sütlü çay yap çok güzel"',
   "Sütlü çay iç",
   "Tesadüf bana bir insan kazandırdı diye düşünmüştüm belki bir tanıdık belki bir arkadaş bir kardeş bir dost ama gönlümün belası olacağın aklıma nerden gelirdi ki :] Konuştuk, birbirimizi tanıdık, filmler izledik, müzikler dinledik sanki aramızda o kadar mesafe yokmuşcasına",
-  "14 Nisan saat 14:00 suları:",
+  "14 Nisan saat 14:00 suları",
   '"Beni ne olarak görüyorsun"',
   '"Bunu akşam eve varınca cevaplayacağım"',
   '"Peki"',
@@ -353,7 +256,7 @@ function typeWriter() {
         if (charIndex < line.length) {
             document.getElementById("typewriter").innerHTML += line.charAt(charIndex);
             charIndex++;
-            setTimeout(typeWriter, 15); // biraz hızlı
+            setTimeout(typeWriter, 15);
         } else {
             document.getElementById("typewriter").innerHTML += "<br>";
             lineIndex++;
@@ -404,6 +307,7 @@ function showStart() {
     hideAll();
     document.getElementById('start').style.display = 'block';
     fadeOut(musicPoem);
+    fadeOut(musicDistance);
     fadeIn(musicStart);
     if (lineIndex === 0) typeWriter();
 }
@@ -413,6 +317,7 @@ function showPoems() {
     const poemsDiv = document.getElementById('poems');
     poemsDiv.style.display = 'block';
     fadeOut(musicStart);
+    fadeOut(musicDistance);
     fadeIn(musicPoem);
 
     // Fade in tüm şiirler
@@ -421,24 +326,26 @@ function showPoems() {
         p.style.opacity = 0; // reset
         setTimeout(() => {
             p.style.opacity = 1;
-        }, i * 300); // 0.3s arayla
+        }, i * 300);
     });
 }
 
 function showDistance() {
     hideAll();
     document.getElementById('distance').style.display = 'block';
+    
     fadeOut(musicStart);
     fadeOut(musicPoem);
+    fadeIn(musicDistance);
 
     const el = document.getElementById('distance');
     let km = 0;
-    const target = 364;
+    const target = 360;
     const interval = setInterval(() => {
         km += 5;
         el.innerText = km + " km";
         if (km >= target) {
-            el.innerText = "364 km ";
+            el.innerText = "360 km 💔";
             clearInterval(interval);
         }
     }, 40);
@@ -465,14 +372,3 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
