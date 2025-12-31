@@ -26,16 +26,15 @@ img {
 }
 
 .heart {
-    font-size: 3em;           /* kalp boyutu */
-    color: #5a7eb2;           /* açık lacivert */
-    margin: 10px 0;           /* foto ve yazı arası boşluk */
+    font-size: 3em;
+    color: #5a7eb2; /* açık lacivert */
+    margin: 10px 0;
     z-index: 2;
     position: relative;
     display: inline-block;
     animation: heartbeat 1s infinite;
 }
 
-/* Kalp atışı animasyonu */
 @keyframes heartbeat {
     0%, 100% { transform: scale(1); }
     25% { transform: scale(1.2); }
@@ -43,7 +42,6 @@ img {
     75% { transform: scale(1.2); }
 }
 
-    
 h1 {
     font-size: 2.2em;
     margin-bottom: 20px;
@@ -96,16 +94,17 @@ button {
     margin-top: 20px;
 }
 
-/* ❄️ KAR EFEKTİ */
+/* Kar efekti */
 .snow {
     position: fixed;
     top: -10px;
     color: white;
     user-select: none;
     pointer-events: none;
-    z-index: 9999; /* HER ŞEYİN ÖNÜNDE */
+    z-index: 9999; /* önde */
     animation: fall linear infinite;
 }
+
 @keyframes fall {
     to {
         transform: translateY(110vh);
@@ -118,7 +117,7 @@ button {
 
 <img src="foto.png" alt="Fotoğraf">
 
-<div class="heart">&hearts;</div>
+<div class="heart">♥</div>
 
 <h1>🎆 Mutlu Yıllar Aşkım 🎆</h1>
 
@@ -167,11 +166,36 @@ const musicPoem = document.getElementById("musicPoem");
 
 let startTyped = false;
 
-function stopAllMusic() {
-    [musicStart, musicPoem].forEach(m => {
-        m.pause();
-        m.currentTime = 0;
-    });
+/* Fade in / fade out */
+function fadeOut(audio, duration = 1000) {
+    if (!audio) return;
+    let step = 50;
+    let volStep = audio.volume / (duration / step);
+    let fadeInterval = setInterval(() => {
+        if (audio.volume > volStep) {
+            audio.volume -= volStep;
+        } else {
+            audio.volume = 0;
+            audio.pause();
+            clearInterval(fadeInterval);
+        }
+    }, step);
+}
+
+function fadeIn(audio, duration = 1000) {
+    if (!audio) return;
+    audio.volume = 0;
+    audio.play();
+    let step = 50;
+    let volStep = 1 / (duration / step);
+    let fadeInterval = setInterval(() => {
+        if (audio.volume < 1 - volStep) {
+            audio.volume += volStep;
+        } else {
+            audio.volume = 1;
+            clearInterval(fadeInterval);
+        }
+    }, step);
 }
 
 function hideAll() {
@@ -180,10 +204,9 @@ function hideAll() {
 
 function showStart() {
     hideAll();
-    stopAllMusic();
-
     document.getElementById('start').style.display = 'block';
-    musicStart.play();
+    fadeOut(musicPoem);
+    fadeIn(musicStart);
 
     if (!startTyped) {
         typeWriter();
@@ -193,19 +216,18 @@ function showStart() {
 
 function showPoems() {
     hideAll();
-    stopAllMusic();
-
     document.getElementById('poems').style.display = 'block';
-    musicPoem.play();
+    fadeOut(musicStart);
+    fadeIn(musicPoem);
 }
 
 function showDistance() {
     hideAll();
-    stopAllMusic();
+    document.getElementById('distance').style.display = 'block';
+    fadeOut(musicStart);
+    fadeOut(musicPoem);
 
     const el = document.getElementById('distance');
-    el.style.display = 'block';
-
     let km = 0;
     const target = 360;
     const interval = setInterval(() => {
@@ -218,7 +240,7 @@ function showDistance() {
     }, 40);
 }
 
-/* Daktilo */
+/* Daktilo efekti */
 const text = `Her şey bir mesajla başladı…
 Bir “merhaba” yetti.
 Sonra geceler uzadı,
@@ -234,7 +256,7 @@ function typeWriter() {
     }
 }
 
-/* ❄️ KAR OLUŞTUR */
+/* Kar efekti */
 function createSnow() {
     const snow = document.createElement("div");
     snow.className = "snow";
@@ -255,7 +277,3 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
-
-
-
-
