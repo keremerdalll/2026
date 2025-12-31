@@ -2,189 +2,178 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<title>Mutlu Yıllar Aşkım</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mutlu Yıllar Aşkım</title>
 
 <style>
-body{
-  margin:0;
-  padding:20px;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(180deg,#0a1a3f,#0f2c6d);
-  color:white;
-  text-align:center;
-  font-size:18px;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #0a1f44, #0d2b5a);
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
-h1{
-  font-size:34px;
-  text-shadow:0 0 10px rgba(0,150,255,.6);
+img {
+    max-width: 90%;
+    height: auto;
+    margin: 20px auto;
+    display: block;
 }
 
-button{
-  background:#1e90ff;
-  border:none;
-  border-radius:30px;
-  color:white;
-  padding:15px 26px;
-  font-size:18px;
-  margin:10px 0;
-  width:100%;
-  max-width:320px;
-  cursor:pointer;
+h1 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
 }
 
-.section{display:none;margin-top:20px}
-
-img.love-photo{
-  width:260px;
-  max-width:90%;
-  border-radius:14px;
-  margin:20px auto;
-  display:block;
+button {
+    width: 90%;
+    max-width: 320px;
+    padding: 15px;
+    margin: 10px auto;
+    font-size: 1.1em;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    background: #1e4fd8;
+    color: white;
 }
 
-/* 🎧 Audio (iOS için görünür) */
-audio{
-  width:100%;
-  max-width:320px;
-  margin:10px auto;
-  display:block;
+.section {
+    display: none;
+    margin-top: 20px;
 }
 
-.poems{
-  max-height:260px;
-  overflow-y:scroll;
-  padding:14px;
-  background:rgba(255,255,255,.15);
-  border-radius:12px;
-  text-align:left;
+#typewriter {
+    font-size: 1.1em;
+    line-height: 1.6;
+    min-height: 120px;
 }
 
-.poems p{margin-bottom:18px;line-height:1.6}
-
-.distance{
-  font-size:34px;
-  font-weight:bold;
+#poems {
+    max-height: 260px;
+    overflow-y: auto;
+    padding: 10px;
+    border-top: 1px solid rgba(255,255,255,0.3);
 }
 
-@media(max-width:768px){
-  h1{font-size:30px}
-  button{font-size:20px;padding:16px}
-  .poems{max-height:55vh}
+.poem {
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+#distance {
+    font-size: 2em;
+    margin-top: 20px;
 }
 </style>
 </head>
 
 <body>
 
-<h1>Mutlu Yıllar Aşkım ❤️</h1>
+<img src="photo.png" alt="Fotoğraf">
 
-<img src="foto.png" class="love-photo">
+<h1>🎆 Mutlu Yıllar Aşkım 🎆</h1>
 
-<!-- 🎧 İLK PLAY (iOS kilidi açmak için) -->
-<p>🎧 Lütfen önce buradan bir kez play’e bas</p>
-<audio id="unlock-audio" src="tulay.mp3" controls></audio>
+<button onclick="showStart()">💌 Nasıl Başladı</button>
+<button onclick="showPoems()">📜 En Güzel Şiirler</button>
+<button onclick="showDistance()">📍 Aramızdaki Mesafe</button>
 
-<button onclick="startStory()">Nasıl Başladı</button>
-<button onclick="showPoems()">En Güzel Şiirler</button>
-<button onclick="showDistance()">Aramızdaki Mesafe</button>
-
-<!-- NASIL BAŞLADI -->
 <div id="start" class="section">
-  <p id="typewriter"></p>
+    <div id="typewriter"></div>
 </div>
 
-<!-- ŞİİRLER -->
-<div id="poems" class="section poems">
-  <p>
-    Seninle geçen her gün,  
-    takvimden silinmiş bir zaman gibi.  
-    Ne eksik, ne fazla…  
-    Sadece olması gerektiği kadar güzel.
-  </p>
+<div id="poems" class="section">
+    <div class="poem">
+        🌙  
+        Gecenin en sessiz yerinde  
+        Adını fısıldıyor kalbim  
+        Mesafeler susturamıyor  
+        Seni sevmeyi…
+    </div>
 
-  <p>
-    Adını içimden her geçirdiğimde  
-    kalbim bir adım daha yaklaşıyor sana.  
-    Mesafeler kısalıyor,  
-    dünya susuyor.
-  </p>
+    <div class="poem">
+        💙  
+        Gözlerin uzak  
+        Ama hislerin yanımda  
+        Bir gün mesafeler yenilecek  
+        Biz kazanacağız.
+    </div>
 
-  <p>
-    Eğer bir gün yorulursan,  
-    bu satırlara dön.  
-    Çünkü burada  
-    seni bekleyen bir “biz” var.
-  </p>
+    <div class="poem">
+        ✨  
+        Aynı gökyüzüne bakıyoruz  
+        Aynı dileği tutarak  
+        Zaman geçecek  
+        Biz kalacağız.
+    </div>
 </div>
 
-<!-- MESAFE -->
-<div id="distanceSection" class="section">
-  <p>Aramızdaki Mesafe</p>
-  <div class="distance" id="distance">0 km</div>
-</div>
+<div id="distance" class="section">0 km</div>
 
-<!-- GERÇEK MÜZİKLER -->
-<audio id="music-start" src="tulay.mp3"></audio>
-<audio id="music-poems" src="peer.mp3"></audio>
+<audio id="musicStart" src="start.mp3"></audio>
+<audio id="musicPoem" src="poem.mp3"></audio>
 
 <script>
-const musicStart=document.getElementById("music-start");
-const musicPoems=document.getElementById("music-poems");
+let startPlayed = false;
+let poemPlayed = false;
 
-const storyText=
-"Her şey bir mesajla başladı...\n"+
-"Sonra geceler uzadı,\n"+
-"kelimeler güzelleşti.\n\n"+
-"İyi ki sen 💙";
-
-let index=0,typing;
-
-function hideAll(){
-  document.querySelectorAll(".section").forEach(s=>s.style.display="none");
+function hideAll() {
+    document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
 }
 
-function stopMusic(){
-  musicStart.pause();
-  musicPoems.pause();
+function showStart() {
+    hideAll();
+    document.getElementById('start').style.display = 'block';
+
+    if (!startPlayed) {
+        document.getElementById('musicStart').play();
+        startPlayed = true;
+        typeWriter();
+    }
 }
 
-function startStory(){
-  hideAll(); stopMusic();
-  document.getElementById("start").style.display="block";
+function showPoems() {
+    hideAll();
+    document.getElementById('poems').style.display = 'block';
 
-  musicStart.currentTime=0;
-  musicStart.play();
-
-  const el=document.getElementById("typewriter");
-  el.innerHTML="";
-  index=0;
-  clearInterval(typing);
-
-  typing=setInterval(()=>{
-    el.innerHTML+=storyText[index]==="\n"?"<br>":storyText[index];
-    index++;
-    if(index>=storyText.length) clearInterval(typing);
-  },55);
+    if (!poemPlayed) {
+        document.getElementById('musicPoem').play();
+        poemPlayed = true;
+    }
 }
 
-function showPoems(){
-  hideAll(); stopMusic();
-  document.getElementById("poems").style.display="block";
-  musicPoems.currentTime=0;
-  musicPoems.play();
+function showDistance() {
+    hideAll();
+    const el = document.getElementById('distance');
+    el.style.display = 'block';
+
+    let km = 0;
+    const target = 360;
+    const interval = setInterval(() => {
+        km += 5;
+        el.innerText = km + " km";
+        if (km >= target) {
+            el.innerText = "360 km 💔";
+            clearInterval(interval);
+        }
+    }, 40);
 }
 
-function showDistance(){
-  hideAll(); stopMusic();
-  document.getElementById("distanceSection").style.display="block";
-  let d=0;
-  const c=setInterval(()=>{
-    d+=8;
-    if(d>=360){d=360;clearInterval(c);}
-    document.getElementById("distance").innerText=d+" km";
-  },30);
+const text = `Her şey bir mesajla başladı…
+Bir “merhaba” yetti.
+Sonra geceler uzadı,
+Sesin alışkanlık oldu,
+Kalbim ev dedi sana.`;
+
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
 }
 </script>
 
