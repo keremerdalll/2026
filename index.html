@@ -90,6 +90,8 @@ button {
 .poem {
     margin-bottom: 30px;
     line-height: 1.6;
+    opacity: 0; /* başta görünmez */
+    transition: opacity 1s ease-in; /* fade in efekti */
 }
 
 #distance {
@@ -293,13 +295,12 @@ Beraber büyüttük bu aşkı<br>
 Ulaşmadan birbirimize
 </div>
 
-<!-- Daha sonraki şiirler eklenebilir aynı formatta -->
 </div>
 
 <div id="distance" class="section">0 km</div>
 
-<audio id="musicStart" src="start.mp3"></audio>
-<audio id="musicPoem" src="poem.mp3" loop></audio>
+<audio id="musicStart" src="Tülay - İkimiz Bir Fidanız (SözleriLyrics) (1975 Plak Kaydı).mp3"></audio>
+<audio id="musicPoem" src="Peer Pressure Extended (Dreamshift Remix) - Eternal Sunshine of the Spotless Mind.mp3" loop></audio>
 
 <script>
 const musicStart = document.getElementById("musicStart");
@@ -395,9 +396,19 @@ function showStart() {
 
 function showPoems() {
     hideAll();
-    document.getElementById('poems').style.display = 'block';
+    const poemsDiv = document.getElementById('poems');
+    poemsDiv.style.display = 'block';
     fadeOut(musicStart);
     fadeIn(musicPoem);
+
+    // Fade in tüm şiirler
+    const poems = poemsDiv.querySelectorAll('.poem');
+    poems.forEach((p, i) => {
+        p.style.opacity = 0; // reset
+        setTimeout(() => {
+            p.style.opacity = 1;
+        }, i * 300); // 0.3s arayla
+    });
 }
 
 function showDistance() {
