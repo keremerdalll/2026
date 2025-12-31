@@ -84,10 +84,9 @@ button {
     color: white;
     user-select: none;
     pointer-events: none;
-    z-index: 1;
+    z-index: 9999; /* HER ŞEYİN ÖNÜNDE */
     animation: fall linear infinite;
 }
-
 @keyframes fall {
     to {
         transform: translateY(110vh);
@@ -235,3 +234,4 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
+
