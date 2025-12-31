@@ -92,8 +92,16 @@ button {
 .poem {
     margin-bottom: 30px;
     line-height: 1.6;
-    opacity: 0; /* başta görünmez */
-    transition: opacity 1s ease-in; /* fade in efekti */
+    opacity: 0; /* fade in için */
+    transition: opacity 1s ease-in;
+    padding-bottom: 20px; /* alt boşluk ve çizgi arası mesafe */
+    border-bottom: 1px solid rgba(255,255,255,0.3); /* çizgi */
+}
+
+.poem strong {
+    display: block;
+    margin-bottom: 10px; /* başlık ile şiir arasına boşluk */
+    font-size: 1.3em;
 }
 
 #distance {
@@ -453,6 +461,7 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
+
 
 
 
