@@ -117,7 +117,7 @@ button {
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     margin-top: 20px;
-    color: white; /* sarı yerine beyaz yaptık */
+    color: white; /* beyaz */
 }
 
 /* Kar efekti */
@@ -143,7 +143,7 @@ button {
 
 <div class="heart">♥</div>
 
-<h1>🎆 Mutlu Yıllar Aşkım 🎆</h1>
+<h1> Mutlu Yıllar Aşkım </h1>
 
 <button onclick="showStart()">💌 Nasıl Başladı</button>
 <button onclick="showPoems()">📜 En Güzel Şiirler</button>
@@ -192,30 +192,13 @@ Defalarca sapladım karnıma öyle bir acıyı<br><br>
 Elindekiyle göster bana saygını<br>
 Sakura’ya gölge düşürdüğün tek şey güzelliğin olmasın
 </div>
-
-<div class="poem">
-<strong>Güvercin</strong><br>
-Güvercinim yolunu bulsun diye beklerim<br>
-Özledim tatlı gözlerinden öpmeyi<br>
-Beyaz, gördüklerimin en güzeli<br>
-Keşke ben de güvercin olup seninle gelebilseydim
-</div>
-
-<div class="poem">
-<strong>Bank</strong><br>
-Bir hatıran kaldı, yalnız bir bankta<br>
-Tokana sinmiş kokun odamda hâlâ<br>
-Anılarla boğuşur her uyku saati<br>
-Kalbim susmaz, özler seni inadına
-</div>
-
 </div>
 
 <div id="distance" class="section">0 km</div>
 
 <!-- Müzikler -->
 <audio id="musicStart" src="start.mp3"></audio>
-<audio id="musicPoem" src="poem" loop></audio>
+<audio id="musicPoem" src="poem.mp3" loop></audio>
 <audio id="musicDistance" src="MesafeSarkisi.mp3"></audio>
 
 <script>
@@ -345,7 +328,7 @@ function showDistance() {
         km += 5;
         el.innerText = km + " km";
         if (km >= target) {
-            el.innerText = "364 km ";
+            el.innerText = "360 km ";
             clearInterval(interval);
         }
     }, 40);
@@ -372,4 +355,3 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
-
