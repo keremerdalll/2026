@@ -44,6 +44,14 @@ img.love-photo{
   display:block;
 }
 
+/* 🎧 Audio (iOS için görünür) */
+audio{
+  width:100%;
+  max-width:320px;
+  margin:10px auto;
+  display:block;
+}
+
 .poems{
   max-height:260px;
   overflow-y:scroll;
@@ -73,6 +81,10 @@ img.love-photo{
 <h1>Mutlu Yıllar Aşkım ❤️</h1>
 
 <img src="foto.png" class="love-photo">
+
+<!-- 🎧 İLK PLAY (iOS kilidi açmak için) -->
+<p>🎧 Lütfen önce buradan bir kez play’e bas</p>
+<audio id="unlock-audio" src="tulay.mp3" controls></audio>
 
 <button onclick="startStory()">Nasıl Başladı</button>
 <button onclick="showPoems()">En Güzel Şiirler</button>
@@ -113,7 +125,7 @@ img.love-photo{
   <div class="distance" id="distance">0 km</div>
 </div>
 
-<!-- SES -->
+<!-- GERÇEK MÜZİKLER -->
 <audio id="music-start" src="tulay.mp3"></audio>
 <audio id="music-poems" src="peer.mp3"></audio>
 
@@ -121,10 +133,10 @@ img.love-photo{
 const musicStart=document.getElementById("music-start");
 const musicPoems=document.getElementById("music-poems");
 
-const storyText =
-"Her şey bir mesajla başladı...\n" +
-"Sonra geceler uzadı,\n" +
-"kelimeler güzelleşti.\n\n" +
+const storyText=
+"Her şey bir mesajla başladı...\n"+
+"Sonra geceler uzadı,\n"+
+"kelimeler güzelleşti.\n\n"+
 "İyi ki sen 💙";
 
 let index=0,typing;
@@ -142,23 +154,19 @@ function startStory(){
   hideAll(); stopMusic();
   document.getElementById("start").style.display="block";
 
-  // 🎧 MÜZİK ÖNCE (iOS GARANTİ)
   musicStart.currentTime=0;
   musicStart.play();
 
-  // ⌨️ Daktilo SONRA
   const el=document.getElementById("typewriter");
   el.innerHTML="";
   index=0;
   clearInterval(typing);
 
-  setTimeout(()=>{
-    typing=setInterval(()=>{
-      el.innerHTML+=storyText[index]==="\n"?"<br>":storyText[index];
-      index++;
-      if(index>=storyText.length) clearInterval(typing);
-    },55);
-  },300);
+  typing=setInterval(()=>{
+    el.innerHTML+=storyText[index]==="\n"?"<br>":storyText[index];
+    index++;
+    if(index>=storyText.length) clearInterval(typing);
+  },55);
 }
 
 function showPoems(){
