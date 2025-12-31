@@ -200,7 +200,7 @@ function typeWriter() {
         if (charIndex < line.length) {
             document.getElementById("typewriter").innerHTML += line.charAt(charIndex);
             charIndex++;
-            setTimeout(typeWriter, 15);
+            setTimeout(typeWriter, 7);
         } else {
             document.getElementById("typewriter").innerHTML += "<br>";
             lineIndex++;
@@ -302,4 +302,5 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
+
 
