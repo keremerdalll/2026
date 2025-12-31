@@ -117,7 +117,7 @@ button {
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     margin-top: 20px;
-    color: #ffd700;
+    color: white; /* sarı yerine beyaz yaptık */
 }
 
 /* Kar efekti */
@@ -214,8 +214,8 @@ Kalbim susmaz, özler seni inadına
 <div id="distance" class="section">0 km</div>
 
 <!-- Müzikler -->
-<audio id="musicStart" src="Tülay - İkimiz Bir Fidanız (SözleriLyrics) (1975 Plak Kaydı).mp3"></audio>
-<audio id="musicPoem" src="Peer Pressure Extended (Dreamshift Remix) - Eternal Sunshine of the Spotless Mind.mp3" loop></audio>
+<audio id="musicStart" src="start.mp3"></audio>
+<audio id="musicPoem" src="poem" loop></audio>
 <audio id="musicDistance" src="MesafeSarkisi.mp3"></audio>
 
 <script>
@@ -345,7 +345,7 @@ function showDistance() {
         km += 5;
         el.innerText = km + " km";
         if (km >= target) {
-            el.innerText = "360 km 💔";
+            el.innerText = "364 km ";
             clearInterval(interval);
         }
     }, 40);
@@ -372,3 +372,4 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
+
