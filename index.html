@@ -72,7 +72,7 @@ button {
 
 <body>
 
-<img src="photo.png" alt="Fotoğraf">
+<img src="foto.png" alt="Fotoğraf">
 
 <h1>🎆 Mutlu Yıllar Aşkım 🎆</h1>
 
@@ -116,8 +116,17 @@ button {
 <audio id="musicPoem" src="poem.mp3"></audio>
 
 <script>
-let startPlayed = false;
-let poemPlayed = false;
+const musicStart = document.getElementById("musicStart");
+const musicPoem = document.getElementById("musicPoem");
+
+let startTyped = false;
+
+function stopAllMusic() {
+    [musicStart, musicPoem].forEach(m => {
+        m.pause();
+        m.currentTime = 0;
+    });
+}
 
 function hideAll() {
     document.querySelectorAll('.section').forEach(s => s.style.display = 'none');
@@ -125,27 +134,29 @@ function hideAll() {
 
 function showStart() {
     hideAll();
-    document.getElementById('start').style.display = 'block';
+    stopAllMusic();
 
-    if (!startPlayed) {
-        document.getElementById('musicStart').play();
-        startPlayed = true;
+    document.getElementById('start').style.display = 'block';
+    musicStart.play();
+
+    if (!startTyped) {
         typeWriter();
+        startTyped = true;
     }
 }
 
 function showPoems() {
     hideAll();
-    document.getElementById('poems').style.display = 'block';
+    stopAllMusic();
 
-    if (!poemPlayed) {
-        document.getElementById('musicPoem').play();
-        poemPlayed = true;
-    }
+    document.getElementById('poems').style.display = 'block';
+    musicPoem.play();
 }
 
 function showDistance() {
     hideAll();
+    stopAllMusic();
+
     const el = document.getElementById('distance');
     el.style.display = 'block';
 
