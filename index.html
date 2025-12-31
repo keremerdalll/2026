@@ -1,178 +1,164 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Mutlu Yıllar Aşkım</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>Mutlu Yıllar Aşkım</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #0a1a3f, #0f2c6d);
-      color: white;
-      text-align: center;
-      font-size: 18px;
-    }
+<style>
+body{
+  margin:0;
+  padding:20px;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(180deg,#0a1a3f,#0f2c6d);
+  color:white;
+  text-align:center;
+  font-size:18px;
+}
 
-    h1 {
-      font-size: 36px;
-      margin-bottom: 15px;
-      text-shadow: 0 0 12px rgba(0,150,255,0.6);
-    }
+h1{
+  font-size:34px;
+  text-shadow:0 0 10px rgba(0,150,255,.6);
+}
 
-    img.love-photo {
-      width: 260px;
-      max-width: 90%;
-      border-radius: 14px;
-      margin: 20px auto;
-      display: block;
-      animation: fadeIn 2s ease forwards;
-    }
+button{
+  background:#1e90ff;
+  border:none;
+  border-radius:30px;
+  color:white;
+  padding:15px 26px;
+  font-size:18px;
+  margin:10px 0;
+  width:100%;
+  max-width:320px;
+  cursor:pointer;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+button:hover{background:#3ea0ff}
 
-    button {
-      background: #1e90ff;
-      border: none;
-      border-radius: 30px;
-      color: white;
-      padding: 14px 26px;
-      font-size: 18px;
-      margin: 10px 0;
-      cursor: pointer;
-      width: 100%;
-      max-width: 320px;
-    }
+.section{display:none;margin-top:20px}
 
-    button:hover {
-      background: #3ea0ff;
-    }
+img.love-photo{
+  width:260px;
+  max-width:90%;
+  border-radius:14px;
+  margin:20px auto;
+  display:block;
+  animation:fadeIn 2s ease forwards;
+}
 
-    .section {
-      display: none;
-      margin-top: 20px;
-    }
+@keyframes fadeIn{
+  from{opacity:0;transform:scale(.95)}
+  to{opacity:1;transform:scale(1)}
+}
 
-    .poems {
-      max-height: 300px;
-      overflow-y: auto;
-      padding: 10px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.1);
-    }
+.poems{
+  max-height:320px;
+  overflow-y:auto;
+  padding:12px;
+  background:rgba(255,255,255,.12);
+  border-radius:12px;
+}
 
-    .distance {
-      font-size: 32px;
-      margin-top: 15px;
-      font-weight: bold;
-    }
+.distance{
+  font-size:34px;
+  margin-top:10px;
+  font-weight:bold;
+}
 
-    /* 📱 MOBİL ÖZEL */
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 32px;
-      }
-
-      button {
-        font-size: 20px;
-        padding: 16px;
-      }
-
-      .distance {
-        font-size: 36px;
-      }
-
-      .poems {
-        max-height: 60vh;
-      }
-    }
-  </style>
+/* MOBİL */
+@media(max-width:768px){
+  h1{font-size:30px}
+  button{font-size:20px;padding:16px}
+  .poems{max-height:60vh}
+}
+</style>
 </head>
+
 <body>
 
-  <h1>Mutlu Yıllar Aşkım ❤️</h1>
+<h1>Mutlu Yıllar Aşkım ❤️</h1>
 
-  <img src="foto.png" alt="Biz" class="love-photo">
+<img src="foto.png" class="love-photo">
 
-  <button onclick="showStart()">Nasıl Başladı</button>
-  <button onclick="showPoems()">En Güzel Şiirler</button>
-  <button onclick="showDistance()">Aramızdaki Mesafe</button>
+<button onclick="showStart()">Nasıl Başladı</button>
+<button onclick="showPoems()">En Güzel Şiirler</button>
+<button onclick="showDistance()">Aramızdaki Mesafe</button>
 
-  <!-- NASIL BAŞLADI -->
-  <div id="start" class="section">
-    <p>Her şey bir mesajla başladı…</p>
-    <p>Sonra geceler uzadı, kelimeler güzelleşti.</p>
-    <p>İyi ki sen 💙</p>
-  </div>
+<!-- NASIL BAŞLADI -->
+<div id="start" class="section">
+  <p id="typewriter"></p>
+</div>
 
-  <!-- ŞİİRLER -->
-  <div id="poems" class="section poems">
-    <p>Sen gülünce dünya duruyor.</p>
-    <p>Adını andığımda kalbim hızlanıyor.</p>
-    <p>Bu satırlar sana, sadece sana…</p>
-    <p>Nice yıllara birlikte.</p>
-  </div>
+<!-- ŞİİRLER -->
+<div id="poems" class="section poems">
+  <p>Sen gülünce dünya duruyor.</p>
+  <p>Adını andığımda kalbim hızlanıyor.</p>
+  <p>Bu satırlar sana, sadece sana…</p>
+</div>
 
-  <!-- MESAFE -->
-  <div id="distanceSection" class="section">
-    <p>Aramızdaki Mesafe</p>
-    <div class="distance" id="distance">0 km</div>
-  </div>
+<!-- MESAFE -->
+<div id="distanceSection" class="section">
+  <p>Aramızdaki Mesafe</p>
+  <div class="distance" id="distance">0 km</div>
+</div>
 
-  <!-- MÜZİKLER -->
-  <audio id="music-start" src="tulay.mp3"></audio>
-  <audio id="music-poems" src="peer.mp3"></audio>
+<!-- MÜZİK -->
+<audio id="music-start" src="tulay.mp3" preload="none"></audio>
+<audio id="music-poems" src="peer.mp3" preload="none"></audio>
 
-  <script>
-    const musicStart = document.getElementById("music-start");
-    const musicPoems = document.getElementById("music-poems");
+<script>
+const musicStart=document.getElementById("music-start");
+const musicPoems=document.getElementById("music-poems");
 
-    function stopAllMusic() {
-      musicStart.pause();
-      musicPoems.pause();
-    }
+const text="Her şey bir mesajla başladı...\nSonra geceler uzadı,\nkelimeler güzelleşti.\nİyi ki sen 💙";
+let i=0,typing;
 
-    function hideAll() {
-      document.querySelectorAll(".section").forEach(s => s.style.display = "none");
-    }
+function hideAll(){
+  document.querySelectorAll(".section").forEach(s=>s.style.display="none");
+}
 
-    function showStart() {
-      hideAll();
-      stopAllMusic();
-      document.getElementById("start").style.display = "block";
-      musicStart.currentTime = 0;
-      musicStart.play();
-    }
+function stopMusic(){
+  musicStart.pause();
+  musicPoems.pause();
+}
 
-    function showPoems() {
-      hideAll();
-      stopAllMusic();
-      document.getElementById("poems").style.display = "block";
-      musicPoems.currentTime = 0;
-      musicPoems.play();
-    }
+function showStart(){
+  hideAll(); stopMusic();
+  document.getElementById("start").style.display="block";
+  musicStart.currentTime=0;
+  musicStart.play();
 
-    function showDistance() {
-      hideAll();
-      stopAllMusic();
-      document.getElementById("distanceSection").style.display = "block";
+  const el=document.getElementById("typewriter");
+  el.innerHTML="";
+  i=0;
+  clearInterval(typing);
 
-      let d = 0;
-      const counter = setInterval(() => {
-        d += 8;
-        if (d >= 360) {
-          d = 360;
-          clearInterval(counter);
-        }
-        document.getElementById("distance").innerText = d + " km";
-      }, 30);
-    }
-  </script>
+  typing=setInterval(()=>{
+    el.innerHTML+=text[i]==="\n"?"<br>":text[i];
+    i++;
+    if(i>=text.length) clearInterval(typing);
+  },50);
+}
+
+function showPoems(){
+  hideAll(); stopMusic();
+  document.getElementById("poems").style.display="block";
+  musicPoems.currentTime=0;
+  musicPoems.play();
+}
+
+function showDistance(){
+  hideAll(); stopMusic();
+  document.getElementById("distanceSection").style.display="block";
+  let d=0;
+  const c=setInterval(()=>{
+    d+=8;
+    if(d>=360){d=360;clearInterval(c);}
+    document.getElementById("distance").innerText=d+" km";
+  },30);
+}
+</script>
 
 </body>
 </html>
