@@ -26,12 +26,23 @@ img {
 }
 
 .heart {
-    font-size: 3em;
-    color: #0d1f44; /* lacivert */
-    margin: 10px 0;
+    font-size: 3em;           /* kalp boyutu */
+    color: #5a7eb2;           /* açık lacivert */
+    margin: 10px 0;           /* foto ve yazı arası boşluk */
     z-index: 2;
     position: relative;
+    display: inline-block;
+    animation: heartbeat 1s infinite;
 }
+
+/* Kalp atışı animasyonu */
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.2); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.2); }
+}
+
     
 h1 {
     font-size: 2.2em;
@@ -244,6 +255,7 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
+
 
 
 
