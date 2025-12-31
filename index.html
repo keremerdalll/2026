@@ -101,7 +101,7 @@ button {
     color: white;
     user-select: none;
     pointer-events: none;
-    z-index: 9999; /* önde */
+    z-index: 9999;
     animation: fall linear infinite;
 }
 
@@ -184,6 +184,7 @@ function fadeOut(audio, duration = 1000) {
 
 function fadeIn(audio, duration = 1000) {
     if (!audio) return;
+    audio.currentTime = 0; // BAŞLANGIÇTAN çalması için
     audio.volume = 0;
     audio.play();
     let step = 50;
@@ -277,4 +278,3 @@ setInterval(createSnow, 300);
 
 </body>
 </html>
-
